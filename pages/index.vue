@@ -13,13 +13,13 @@ const auth = useAuthStore();
 
 const handleLogin = async () => {
   if (auth.isLoggedIn) {
-    return navigateTo("/");
+    return navigateTo("/boards");
   }
 
   const { error } = await auth.login(form.value);
 
   if (!error.value) {
-    return navigateTo("/");
+    return navigateTo("/boards");
   }
 };
 </script>

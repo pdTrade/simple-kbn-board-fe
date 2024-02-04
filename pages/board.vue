@@ -1,7 +1,6 @@
-<script setup type="ts">
+<script setup lang="ts">
 definePageMeta({
   // middleware: ['auth']
-
 });
 
 const __arr = Array.from({ length: 2 });
