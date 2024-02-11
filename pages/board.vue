@@ -3,7 +3,11 @@ definePageMeta({
   // middleware: ['auth']
 });
 
-const __arr = Array.from({ length: 2 });
+const board = {
+  id: 1,
+};
+
+const __arr = Array.from({ length: 3 });
 </script>
 <template>
   <main class="flex-1 overflow-hidden">
@@ -42,19 +46,10 @@ const __arr = Array.from({ length: 2 });
                   >
                     item
                   </li>
-                  <li
-                    class="rounded-md border-b border-gray-300 bg-white p-3 shadow hover:bg-gray-50"
-                  >
-                    item
-                  </li>
                 </ul>
-              </div>
-              <div class="mt-3">
-                <button
-                  class="w-full rounded-md p-2 text-sm font-medium text-gray-600 hover:bg-gray-300 hover:text-black"
-                >
-                  item add
-                </button>
+                <div class="mt-3">
+                  <CreateCard :board="board" />
+                </div>
               </div>
             </div>
           </div>

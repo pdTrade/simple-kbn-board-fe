@@ -10,15 +10,21 @@ const togglePopover = () => {
 
 const form = ref(null);
 
-const { fetchBoards, boards, saveBoard } = useBoards();
+const { fetchBoards, boards, saveBoard, errorMessage } = useBoards();
 
 await fetchBoards();
 
 const onSubmit = async () => {
   const formData = {
-    'name': form.value
-  }
+    name: form.value,
+  };
   await saveBoard(formData);
+
+  if (!!errorMessage.value) {
+    return;
+  }
+
+  form.value = null;
   togglePopover();
   await fetchBoards();
 };
@@ -54,7 +60,9 @@ const onSubmit = async () => {
                   class="w-full rounded-md border-2 border-gray-300 p-2 text-sm shadow-sm"
                 />
 
-                <p class="text-sm text-red-600">errors</p>
+                <p class="text-sm text-red-600">
+                  {{ errorMessage }}
+                </p>
                 <div class="mt-2 flex justify-end">
                   <button
                     class="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-500"
