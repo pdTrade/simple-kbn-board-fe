@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import Draggable from "vuedraggable"
+
 definePageMeta({
-  // middleware: ['auth']
+  middleware: ['auth']
 });
 const { fetchLists, lists, saveList, errorMessage } = useLists();
 
@@ -37,15 +39,20 @@ await fetchLists(boardId);
             </div>
             <div class="flex flex-col overflow-hidden pb-3">
               <div class="flex-1 overflow-y-auto px-3">
-                <ul class="space-y-3">
-                  <li
-                    v-for="card in item.cards"
-                    :key="card.id"
-                    class="rounded-md border-b border-gray-300 bg-white p-3 shadow hover:bg-gray-50"
-                  >
-                    item
-                  </li>
-                </ul>
+                <draggable
+                    v-model="item.cards"
+                    group="cards"
+                    item-key="id"
+                    tag="ul"
+                >
+                  <template #item="{element}">
+                    <li
+                        class="rounded-md border-b border-gray-300 bg-white p-3 shadow hover:bg-gray-50"
+                    >
+                      {{element.name}}
+                    </li>
+                  </template>
+                </draggable>
               </div>
               <div class="mt-3 px-3">
                 <CreateCard :list="item" />
