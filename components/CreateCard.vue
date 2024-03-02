@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps({
-  board: Object,
+  list: Object,
 });
 
 const isShowForm = ref(false);
@@ -11,7 +11,7 @@ const { fetchCards, cards, saveCard, errorMessage } = useCards();
 const onSubmit = async () => {
   const formData = {
     name: form.value,
-    board_id: props.board.id,
+    card_list_id: props.list.id,
   };
 
   await saveCard(formData);
@@ -40,6 +40,7 @@ const onSubmit = async () => {
         Create
       </button>
       <button
+        type="button"
         @click="isShowForm = false"
         class="rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-500"
       >

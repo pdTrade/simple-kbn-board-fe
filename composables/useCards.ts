@@ -3,8 +3,8 @@ export function useCards() {
   const errorMessage = ref(null);
 
   const fetchCards = async () => {
-    // const { data, error } = await useApiFetch("/api/boards", { method: "get" });
-    // boards.value = data.value.boards;
+    const { data, error } = await useApiFetch("/api/cards", { method: "get" });
+    cards.value = data.value.cards;
     return [];
   };
 

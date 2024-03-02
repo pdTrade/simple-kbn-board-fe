@@ -72,7 +72,7 @@ const onSubmit = async () => {
                 </div>
               </form>
             </div>
-            <div data-popper-arrow></div>
+            <div></div>
           </div>
         </div>
       </div>
@@ -83,7 +83,10 @@ const onSubmit = async () => {
           :key="item.id"
           class="relative min-h-24 rounded-md bg-sky-600 hover:bg-sky-700"
         >
-          <a class="absolute inset-0 p-4 text-lg font-bold text-white" href="#">
+          <a
+            class="absolute inset-0 p-4 text-lg font-bold text-white"
+            :href="`/board/${item.id}`"
+          >
             {{ item.name }}
           </a>
         </li>
