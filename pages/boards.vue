@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
-  middleware: ['auth']
+  middleware: ["auth"],
+  layout: "auth",
 });
 
 const isShow = ref<boolean>(false);
@@ -31,7 +32,7 @@ const onSubmit = async () => {
 </script>
 
 <template>
-  <div class="h-full bg-gray-100 px-4 py-6">
+  <div class="h-full bg-gray-100 px-4 py-6 pl-60">
     <div class="mx-auto max-w-5xl">
       <div class="relative mb-4 flex items-center">
         <h3 class="font-black text-gray-700">My boards</h3>

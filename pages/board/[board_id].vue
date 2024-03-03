@@ -2,7 +2,8 @@
 import Draggable from "vuedraggable"
 
 definePageMeta({
-  middleware: ['auth']
+  middleware: ['auth'],
+  layout: 'auth'
 });
 const { fetchLists, lists, saveList, errorMessage } = useLists();
 
@@ -13,7 +14,7 @@ await fetchLists(boardId);
 
 </script>
 <template>
-  <main class="overflow-hidden">
+  <main class="overflow-hidden pl-60">
     <div class="flex h-full flex-col">
       <div class="flex shrink-0 items-center p-4 space-x-4">
         <h1 class="text-2xl font-bold text-white">title</h1>

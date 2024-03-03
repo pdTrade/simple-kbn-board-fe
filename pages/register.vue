@@ -1,4 +1,9 @@
 <script setup lang="ts">
+definePageMeta({
+  middleware: ["guest"],
+  layout: "guest",
+});
+
 type Credentials = {
   name: string;
   email: string;
